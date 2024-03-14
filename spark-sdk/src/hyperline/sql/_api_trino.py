@@ -8,6 +8,9 @@ __all__ = [
     "execute_sql",
 ]
 
+def hello_sql(query: str) -> str:
+  return f"Hello, {query}!"
+
 def execute_sql(
   query: str,
 ) -> pd.DataFrame:
