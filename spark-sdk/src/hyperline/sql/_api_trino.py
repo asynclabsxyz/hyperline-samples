@@ -6,6 +6,7 @@ import pandas as pd
 
 __all__ = [
     "execute_sql",
+    "hello_sql",
 ]
 
 def hello_sql(query: str) -> str:
