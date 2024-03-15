@@ -3,6 +3,7 @@ Primitives to create Pandas Dataframes represending crypto datasets using Hyperl
 """
 from trino.dbapi import connect
 import pandas as pd
+import os
 
 __all__ = [
     "execute_sql",
@@ -15,10 +16,13 @@ def hello_sql(query: str) -> str:
 def execute_sql(
   query: str,
 ) -> pd.DataFrame:
-  host = '10.138.0.11'
+  
+  host = os.getenv('TRINO_IP') 
+  workspace = os.getenv('WORKSPACE_NAME')
+
   port = "8080"
-  user = 'ws-demo3@mvp-infra.iam.gserviceaccount.com'
-  catalog="hyperlake"
+  user = f'ws-{workspace}@mvp-infra.iam.gserviceaccount.com'
+  catalog="hyperline"
   schema="hyperdata"
 
   conn = connect(
