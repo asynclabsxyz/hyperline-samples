@@ -18,11 +18,9 @@ def execute_sql(
 ) -> pd.DataFrame:
   
   host = os.getenv('TRINO_IP') 
-  workspace = os.getenv('WORKSPACE_NAME')
-
+  user = os.getenv('SERVICE_ACCOUNT')
   port = "8080"
-  user = f'ws-{workspace}@mvp-infra.iam.gserviceaccount.com'
-  catalog="hyperline"
+  catalog="hyperlake"
   schema="hyperdata"
 
   conn = connect(
