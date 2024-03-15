@@ -23,10 +23,6 @@ def execute_sql(
   catalog="hyperlake"
   schema="hyperdata"
 
-  print('Querying trino..')
-  print(host)
-  print(user)
-  
   conn = connect(
       host=host,
       port=port,
