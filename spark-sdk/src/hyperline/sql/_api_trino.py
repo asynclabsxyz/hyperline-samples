@@ -66,6 +66,6 @@ def execute_sql_new(
       if not batch:
           break
       
-      df = pd.concat([df, pd.DataFrame([batch])], ignore_index=True)
+      df = pd.concat([df, pd.DataFrame([batch])], ignore_index=False)
           
   return df
