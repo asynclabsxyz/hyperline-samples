@@ -7,6 +7,7 @@ import os
 
 __all__ = [
     "execute_sql",
+    "execute_sql_new",
     "hello_sql",
 ]
 
