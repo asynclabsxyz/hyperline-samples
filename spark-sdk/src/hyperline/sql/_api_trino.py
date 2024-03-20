@@ -38,3 +38,33 @@ def execute_sql(
   return df
 
 
+BATCH_SIZE = 10
+def execute_sql_new(
+  query: str,
+) -> pd.DataFrame:
+  
+  host = os.getenv('TRINO_IP') 
+  user = os.getenv('SERVICE_ACCOUNT')
+  port = "8080"
+  catalog="hyperlake"
+  schema="hyperdata"
+
+  conn = connect(
+      host=host,
+      port=port,
+      user=user,
+      catalog=catalog,
+      schema=schema,
+  )
+  cur = conn.cursor()
+  cur.execute(query)
+  
+  df = pd.DataFrame()
+  while True:
+      batch = cur.fetchmany(BATCH_SIZE)
+      if not batch:
+          break
+      
+      df = df.append(batch, ignore_index=True)
+          
+  return df
