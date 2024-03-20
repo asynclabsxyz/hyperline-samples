@@ -60,12 +60,13 @@ def execute_sql_new(
   cur = conn.cursor()
   cur.execute(query)
   
-  df = pd.DataFrame()
+  lst = []
   while True:
       batch = cur.fetchmany(BATCH_SIZE)
       if not batch:
           break
-      
-      df = pd.concat([df, pd.DataFrame([batch])], ignore_index=False)
+      lst.append(batch)
+    
+  df = pd.DataFrame(lst)
           
   return df
