@@ -65,6 +65,10 @@ def execute_sql_new(
       batch = cur.fetchmany(BATCH_SIZE)
       if not batch:
           break
+        
+      for id, name in batch:
+        print(f"id={id}, name={name} \n")
+        
       lst.append(batch)
     
   df = pd.DataFrame(lst)
