@@ -66,11 +66,7 @@ def execute_sql_new(
       if not batch:
           break
         
-      for id, name in batch:
-        print(f"id={id}, name={name} \n")
-        
-      lst.append(batch)
-    
-  df = pd.DataFrame(lst)
-          
-  return df
+      lst.extend(batch)
+  
+  return pd.DataFrame.from_records(lst, columns = [i[0] for i in cur.description])
+     
