@@ -7,14 +7,14 @@ import os
 
 __all__ = [
     "execute_sql",
-    "execute_sql_new",
+    "execute_sql_old",
     "hello_sql",
 ]
 
 def hello_sql(query: str) -> str:
   return f"Hello, {query}!"
 
-def execute_sql(
+def execute_sql_old(
   query: str,
 ) -> pd.DataFrame:
   
@@ -39,8 +39,8 @@ def execute_sql(
   return df
 
 
-BATCH_SIZE = 10
-def execute_sql_new(
+BATCH_SIZE = 1000
+def execute_sql(
   query: str,
 ) -> pd.DataFrame:
   
