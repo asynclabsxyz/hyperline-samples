@@ -1,9 +1,0 @@
-build
-packaging
-py4j
-pyproject_hooks
-pyspark
-tomli
-snowflake-connector-python
-pandas
-trino
