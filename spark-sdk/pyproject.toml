@@ -17,8 +17,15 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
-  'py4j==0.10.9.5',
-  'pyspark==3.3.1'
+  'build',
+  'packaging',
+  'py4j',
+  'pyproject_hooks',
+  'pyspark',
+  'tomli',
+  'snowflake-connector-python',
+  'pandas',
+  'trino',
 ]
 
 [project.urls]
